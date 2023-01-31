@@ -15,9 +15,17 @@ export async function OPTIONS() {
 
 
 export const GET = (() => {
-  return json({
+	const config = {
 		name: "MacroStash",
 		version: 1
-	});
+	}
+  return new Response(JSON.stringify(config ), {
+	status: 200,
+	statusText: 'OK',
+	headers: {
+		'content-type': 'application/json',
+		'access-control-allow-origin': '*'
+	}
+});;
 
 }) satisfies RequestHandler;
